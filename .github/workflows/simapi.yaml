@@ -40,3 +40,12 @@ jobs:
     steps:
       - name: deploy
         run: docker run --name simapi -p 80:3100 -d simapi:1.0.0
+
+  Test:
+    needs: Deploy
+    runs-on: self-hosted
+    steps:
+      - name: test
+        run: |
+          curl 127.0.0.1
+          curl 127.0.0.1/health
