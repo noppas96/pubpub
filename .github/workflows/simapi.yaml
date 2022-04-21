@@ -22,8 +22,8 @@ jobs:
 
       - name: checkpoint
         run: |
-          echo "List File Current Dir" 
+          echo ">>>>> LIST FILES CURRENT DIR" 
           ls -lta
-          echo "Workspace DIR"
+          echo ">>>> WORKSPACE DIR "
           pwd
 
