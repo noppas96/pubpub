@@ -27,3 +27,9 @@ jobs:
           echo ">>>> WORKSPACE DIR "
           pwd
 
+  Build:
+    needs: Prepare
+    runs-on: self-hosted
+    steps:
+      - name: build
+        run: docker build -t simapi:1.0.0 .
