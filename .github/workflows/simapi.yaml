@@ -43,7 +43,7 @@ jobs:
           if [ ! -z "$(docker ps -a | grep simapi)" ];then
             docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
           else
-            echo "NOT FOUND ANY CONTAINER READY TO DEPLOY"
+            echo "NOT FOUND ANY CONTAINER, READY TO DEPLOY"
           fi
 
       - name: deploy
