@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "sim-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://noppas96: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@github.com/noppas96/pubpub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noppas96/pubpub/issues"
+  },
+  "homepage": "https://github.com/noppas96/pubpub#readme"
+}
