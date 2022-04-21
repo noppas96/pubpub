@@ -1,1 +1,1 @@
-# Pubpub Lab
+# PubPub LabLab
