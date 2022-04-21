@@ -33,3 +33,10 @@ jobs:
     steps:
       - name: build
         run: docker build -t simapi:1.0.0 .
+
+  Deploy:
+    needs: Build
+    runs-on: self-hosted
+    steps:
+      - name: deploy
+        run: docker run --name simapi -p 80:3100 -d simapi:1.0.0
