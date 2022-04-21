@@ -39,7 +39,12 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: armed
-        run: docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
+        run: |
+          if [ ! -z "$(docker ps -a | grep simapi)" ];then
+            docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
+          else
+            echo "not found any container"
+          fi
 
       - name: deploy
         run: docker run --name simapi -p 80:3100 -d simapi:1.0.0
