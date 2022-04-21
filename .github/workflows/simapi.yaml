@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: checkpoint
+      - name: check
         run: |
           echo ">>>>> LIST FILES CURRENT DIR" 
           ls -lta
@@ -43,7 +43,7 @@ jobs:
           if [ ! -z "$(docker ps -a | grep simapi)" ];then
             docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
           else
-            echo "not found any container"
+            echo "NOT FOUND ANY CONTAINER READY TO DRPLOY"
           fi
 
       - name: deploy
@@ -55,5 +55,5 @@ jobs:
     steps:
       - name: test
         run: |
-          curl 127.0.0.1
-          curl 127.0.0.1/health
+          echo "CHECK : " $(curl 127.0.0.1)
+          echo "HEALTH : " $(curl 127.0.0.1/health)
