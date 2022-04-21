@@ -1,1 +1,1 @@
-# Pubpub Repo
+# Pubpub Lab
