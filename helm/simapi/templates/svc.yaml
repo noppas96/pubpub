@@ -4,12 +4,12 @@ metadata:
   namespace: {{ .Values.Namespace }}
   name: {{ .Values.Name }}
 spec:
-  type: NodePort
+  type: {{ .Values.Servicetype }}
   selector:
     app: {{ .Values.Name }}
   ports:
     - protocol: TCP
-      name: {{ Values.Ports.name }}
-      port: {{ Values.Ports.containerPort }}
-      targetPort: {{ Values.Ports.containerPort }}
-      nodePort: {{ Values.Ports.nodePort }}
+      name: {{ .Values.Ports.name }}
+      port: {{ .Values.Ports.containerPort }}
+      targetPort: {{ .Values.Ports.containerPort }}
+      nodePort: {{ .Values.Ports.nodePort }}
