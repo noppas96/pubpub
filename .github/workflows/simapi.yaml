@@ -31,9 +31,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: build
-        run: docker build -t 952561415/simapi:1.0.0 .
+        run: sudo docker build -t 952561415/simapi:1.0.0 .
       - name: push
-        run: docker push 952561415/simapi:1.0.0
+        run: sudo docker push 952561415/simapi:1.0.0
 
   Deploy:
     needs: Build
@@ -41,13 +41,13 @@ jobs:
     steps:
       - name: armed
         run: |
-          if [ ! -z "$(docker ps -a | grep simapi)" ];then
-            docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
+          if [ ! -z "$(sudo docker ps -a | grep simapi)" ];then
+            sudo docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
           else
             echo "NOT FOUND ANY CONTAINER, READY TO DEPLOY"
           fi
       - name: deploy
-        run: docker run  -p 80:3100 -d simapi:1.0.0
+        run: sudo docker run  -p 80:3100 -d simapi:1.0.0
 
   Test:
     needs: Deploy
