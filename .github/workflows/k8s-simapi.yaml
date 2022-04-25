@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: simapi
+name: simapi k8s deploy
 
 # Controls when the workflow will run
 on:
@@ -39,15 +39,8 @@ jobs:
     needs: Build
     runs-on: self-hosted
     steps:
-      - name: armed
-        run: |
-          if [ ! -z "$(sudo docker ps -a | grep simapi)" ];then
-            sudo docker ps -a | grep simapi | awk '{print $1}' | xargs docker rm -f
-          else
-            echo "NOT FOUND ANY CONTAINER, READY TO DEPLOY"
-          fi
       - name: deploy
-        run: sudo docker run  -p 8080:3100 -d 952561415/simapi:1.0.0
+        run: helm upgrade --install -n test-environment simapi helm/simapi/ -f helm/simapi/values.yaml
 
   Test:
     needs: Deploy
