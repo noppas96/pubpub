@@ -3,5 +3,8 @@ Name: simapi
 Image:
   name: 952561415/simapi
   tag: 1.0.0
+Servicetype: NodePort
 Ports:
+  name: http
   containerPort: 3100
+  nodePort: 31000

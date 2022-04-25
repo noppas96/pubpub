@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: simapi k8s deploy
+name: simapi-k8s-deploy
 
 # Controls when the workflow will run
 on:
@@ -48,5 +48,5 @@ jobs:
     steps:
       - name: test
         run: |
-          echo "CHECK : " $(curl 127.0.0.1:8080)
-          echo "HEALTH : " $(curl 127.0.0.1:8080/health)
+          echo "CHECK : " $(curl 10.10.10.91:31000)
+          echo "HEALTH : " $(curl 10.10.10.91:31000/health)
